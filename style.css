@@ -1,0 +1,324 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b0b;
+    color: white;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    height: 80px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #d6ff3f;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d6ff3f;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    padding: 90px 7% 60px;
+}
+
+.hero > p:first-child {
+    color: #d6ff3f;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 95px);
+    line-height: 0.95;
+    font-weight: 700;
+}
+
+.hero h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+}
+
+.line {
+    width: 100px;
+    height: 3px;
+    background: #d6ff3f;
+    margin: 35px 0 20px;
+}
+
+.description {
+    max-width: 450px;
+    color: #888;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+
+/* ================= GALLERY ================= */
+
+.gallery {
+    width: 86%;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-auto-rows: 250px;
+
+    gap: 18px;
+}
+
+
+/* Individual photos */
+
+.photo {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+/* Different sizes */
+
+.photo1 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.photo2 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.photo3 {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.photo4 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.photo5 {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.photo6 {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+
+/* Images */
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+}
+
+
+/* Hover image */
+
+.photo:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.55);
+}
+
+
+/* ================= OVERLAY ================= */
+
+.overlay {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 25px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.9)
+    );
+
+    transform: translateY(30px);
+
+    opacity: 0;
+
+    transition: 0.5s;
+}
+
+
+.photo:hover .overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+.overlay span {
+    color: #d6ff3f;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+.overlay h2 {
+    margin-top: 7px;
+    font-size: 25px;
+}
+
+
+.overlay p {
+    margin-top: 5px;
+    color: #aaa;
+    font-size: 13px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    margin-top: 80px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-top: 1px solid #222;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 0 5%;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 70px 5% 45px;
+    }
+
+    .gallery {
+        width: 90%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        grid-auto-rows: 230px;
+    }
+
+    .photo1 {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .photo3 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .photo5 {
+        grid-column: span 2;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    header {
+        height: auto;
+        padding: 25px;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    .hero {
+        padding: 55px 25px 40px;
+    }
+
+    .gallery {
+        width: calc(100% - 30px);
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        grid-auto-rows: 260px;
+
+        gap: 12px;
+    }
+
+    .photo1,
+    .photo2,
+    .photo3,
+    .photo4,
+    .photo5,
+    .photo6 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+}
